@@ -1,0 +1,10 @@
+La frecuencia cardíaca del paciente es de 54.03bpm 
+
+Los picos de señal son los siguientes:  
+1.465eV ---- 0.969seg 
+1.465eV ---- 2.061seg 
+1.41eV ---- 3.208seg 
+1.515eV ---- 4.381seg 
+1.35eV ---- 5.5seg 
+
+El paciente se encuentra actualmente durmiendo.
