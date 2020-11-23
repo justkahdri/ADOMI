@@ -14,31 +14,6 @@ def encontrar_picos(valores_X, valores_Y):
     return valores_finales
 
 
-# GUARDA LOS RESULTADOS EN UN ARCHIVO TXT
-def reportar(senal, lapsos, fr_cardiaca, estado):
-    decorador = '-' * 50                                        # Define lo que se proyectará en la consola.
-    resultados = f'La frecuencia cardíaca del paciente es de {fr_cardiaca} bpm. \n\n' \
-                 f'Los picos de señal son los siguientes:  \n'
-
-    for i in range(len(senal)):
-        resultados += f'{senal[i]}eV ---- {round(lapsos[i], 3)}seg \n'
-    resultados += f'\nEl paciente se encuentra actualmente {estado}'
-    print(decorador, '\n' + resultados, '\n' + decorador)
-
-    if not os.path.isdir('./exports'):
-        os.mkdir('./exports')
-    elif os.path.isfile('./exports/resultados.txt'):                            # Verifica si existe el archivo.
-        sobreescribir = 'undefined'
-        while sobreescribir.lower() not in ['si', 'no']:
-            print('El archivo resultados.txt ya existe')
-            sobreescribir = input('Desea sobreescribirlo? [Sí/No]: ')
-        if sobreescribir.lower() == 'no':
-            return                                                              # Sale de la funcion sin sobreescribir.
-
-    with open('./exports/resultados.txt', 'w', encoding='utf-8') as f:          # Define el archivo a escribir.
-        f.write(resultados)
-
-
 # ACTIVIDAD DEL PACIENTE
 def determinar_actividad(fr_cardiaca, edad, sexo, peso):                        # Se calculan los bpm del paciente.
     fr_max_paciente = (210 - (edad * 0.5)) - (0.01 * peso)
@@ -64,6 +39,31 @@ def determinar_actividad(fr_cardiaca, edad, sexo, peso):                        
         return "en reposo."
     else:
         return "realizando ejercicio físico."
+
+
+# GUARDA LOS RESULTADOS EN UN ARCHIVO TXT
+def reportar(senal, lapsos, fr_cardiaca, estado):
+    decorador = '-' * 50                                        # Define lo que se proyectará en la consola.
+    resultados = f'La frecuencia cardíaca del paciente es de {fr_cardiaca} bpm. \n\n' \
+                 f'Los picos de señal son los siguientes:  \n'
+
+    for i in range(len(senal)):
+        resultados += f'{senal[i]}eV ---- {round(lapsos[i], 3)}seg \n'
+    resultados += f'\nEl paciente se encuentra actualmente {estado}'
+    print(decorador, '\n' + resultados, '\n' + decorador)
+
+    if not os.path.isdir('./exports'):
+        os.mkdir('./exports')
+    elif os.path.isfile('./exports/resultados.txt'):                            # Verifica si existe el archivo.
+        sobreescribir = 'undefined'
+        while sobreescribir.lower() not in ['si', 'no']:
+            print('El archivo resultados.txt ya existe')
+            sobreescribir = input('Desea sobreescribirlo? [Sí/No]: ')
+        if sobreescribir.lower() == 'no':
+            return                                                              # Sale de la funcion sin sobreescribir.
+
+    with open('./exports/resultados.txt', 'w', encoding='utf-8') as f:          # Define el archivo a escribir.
+        f.write(resultados)
 
 
 # INICIA EL PROGRAMA

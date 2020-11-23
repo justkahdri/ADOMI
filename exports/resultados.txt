@@ -1,4 +1,4 @@
-La frecuencia cardíaca del paciente es de 54.03 bpm 
+La frecuencia cardíaca del paciente es de 54.03 bpm. 
 
 Los picos de señal son los siguientes:  
 1.465eV ---- 0.969seg 
