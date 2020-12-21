@@ -128,3 +128,4 @@ dmypy.json
 # DATA ARCHIVES
 .xlsx
 exports/
+.png
