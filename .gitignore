@@ -127,6 +127,6 @@ dmypy.json
 .pyre/
 
 # DATA ARCHIVES
-.xlsx
-exports/
-.png
+*.xlsx
+exports/*
+*.png
